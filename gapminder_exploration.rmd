@@ -1,0 +1,62 @@
+---
+title: "gapminder_exploration"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Bring the rectangular data in
+```{r}
+library(gapminder)
+library(tidyverse)
+```
+
+
+##Small test the data
+1. Is it a data.frame, a matrix,a vector, a list?
+Answer: This is a list. 
+```{r}
+typeof(gapminder)
+```
+
+2. What is its class?
+
+```{r}
+class(gapminder) ##class
+```
+
+3. How many varables/column?
+```{r}
+ncol(gapminder) ## number of column
+```
+
+
+4. How mant rows/observation?
+```{r}
+nrow(gapminder)
+```
+
+5. Get these facts about extent or size in more than one way?
+```{r}
+length(gapminder) ## return the length of the vectors therefore the number of column
+dim(gapminder)  ## return the dimension of the vector in the format of row by column, therefore, 1704 rows and 6 column for this database
+
+nrow <- dim(gapminder)[1] ## return number of rows
+ncol <- dim(gapminder)[2] ## return number of columns
+```
+
+6.What data type is each variable?
+```{r}
+typeof(gapminder$country)
+typeof(gapminder$gdpPercap)
+typeof(gapminder$continent)
+typeof(gapminder$year)
+typeof(gapminder$pop)
+typeof(gapminder$lifeExp)
+```
+
+
+## Exploring individual varaibles
+
