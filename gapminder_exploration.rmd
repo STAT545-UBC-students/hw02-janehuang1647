@@ -59,4 +59,84 @@ typeof(gapminder$lifeExp)
 
 
 ## Exploring individual varaibles
+Categorical variable:continent
+Quantitative variable:year
+```{r}
+summary(gapminder)
+summary(gapminder$continent) ##sorting the possible continent and also the number of country each continent contains
+
+max(gapminder$year)
+min(gapminder$year)
+var(gapminder$year)
+```
+As we can explore from the summary, for variable Continent, the possible values are Africa, Americas, Asia, Europe and Oceania. As for the quantitative variable year, the range of variable is from 1952 to 2007.
+
+```{r}
+summary(gapminder$year)
+```
+As shown from the above data, although year is ranging from 1952-2007, the most typical values are ranging from 1966 to 1993 with a median and mean of 1980.t The variance of this variable is 298.0916.
+
+For the variable continent, the most typical value is Africa and the continent Oceania has less entries. 
+
+
+## Explore various plot types
+This is the scatterplot of pop vs gdpPercap 
+```{r}
+ggplot(gapminder,aes(pop,gdpPercap))+
+  geom_point(alpha=0.25)
+```
+
+This is a histogram of pop and the bin is set to be 50.
+```{r}
+ggplot(gapminder,aes(pop))+
+  geom_histogram(bins=50)
+```
+This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
+
+```{r}
+ggplot(gapminder,aes(pop))+
+  geom_histogram(aes(y=..density..))+
+  geom_density()
+```
+This is a boxplot of lifeExp for each continent.
+```{r}
+ggplot(gapminder,aes(continent,lifeExp))+
+  geom_boxplot()
+```
+
+This is the violin plot of lifeExp for each continent
+```{r}
+ggplot(gapminder,aes(continent,lifeExp))+
+  geom_violin()
+```
+
+##Using filter(), select() and %>% 
+
+filter the data to continent Oceania only and the various plots are shown below:
+
+```{r}
+gapminder %>% 
+  filter(continent=="Oceania") %>% 
+  ggplot(aes(year, pop))+
+ geom_point()
+```
+
+select only variables lifeExp and continent and plot the boxplot and jitter plot of lifeExp for each continent.
+```{r}
+gapminder %>% 
+ select(lifeExp,continent) %>% 
+  ggplot(aes(continent,lifeExp))+
+  geom_boxplot(alpha=0.25)+
+  geom_jitter()
+
+```
+
+## Extra Work
+```{r}
+filter(gapminder, country == c("Rwanda", "Afghanistan"))
+```
+This is the correct way to extract the entries for country Afghanistan and Rwanda only.
+This only filter out the entry that country=="Rwanda" and country=="Afghanistan"
+
+
 
