@@ -105,7 +105,8 @@ ggplot(gapminder,aes(pop))+
   geom_histogram(aes(y=..density..))+
   geom_density()
 ```
-##This is a boxplot of lifeExp for each continent.
+
+## This is a boxplot of lifeExp for each continent.
 ```{r}
 ## fill is used to give different continent a different color filling 
 ggplot(gapminder,aes(continent,lifeExp))+
