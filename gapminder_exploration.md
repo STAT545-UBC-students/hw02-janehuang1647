@@ -209,7 +209,10 @@ ggplot(gapminder,aes(pop))+
   geom_histogram(bins=50)
 ```
 
-![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-11-1.png) \#This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-11-1.png)
+
+This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
+----------------------------------------------------------------------------------------------
 
 ``` r
 ggplot(gapminder,aes(pop))+

@@ -98,7 +98,8 @@ ggplot(gapminder,aes(pop,gdpPercap))+
 ggplot(gapminder,aes(pop))+
   geom_histogram(bins=50)
 ```
-#This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
+
+## This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
 
 ```{r}
 ggplot(gapminder,aes(pop))+
