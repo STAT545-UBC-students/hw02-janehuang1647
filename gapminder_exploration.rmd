@@ -16,24 +16,28 @@ library(tidyverse)
 
 ##Small test the data
 1. Is it a data.frame, a matrix,a vector, a list?
-Answer: This is a list. 
+Answer: As we called the str() function, we can clearly see that our data is a data.frame. 
 ```{r}
+str(gapminder)
 typeof(gapminder)
 ```
 
 2. What is its class?
+As shown below, the class() function returned the class of the data, which are table, tibble and data frame. 
 
 ```{r}
 class(gapminder) ##class
 ```
 
-3. How many varables/column?
+3. How many variables/column?
+There are 6 columns when each column corresponding to one variable.
 ```{r}
 ncol(gapminder) ## number of column
 ```
 
 
 4. How mant rows/observation?
+There are total 1704 rows which stands for 1704 observations. 
 ```{r}
 nrow(gapminder)
 ```
@@ -48,6 +52,19 @@ ncol <- dim(gapminder)[2] ## return number of columns
 ```
 
 6.What data type is each variable?
+
+|variable| data type|
+-------------------
+|--------|----------|
+|  country   |  integer  |
+|   gdpPercap  | double  |
+| continent  |  integer  |
+|  year    | integr  |
+|  pop   | integer  |
+|  lifeExp  | double  |
+
+
+
 ```{r}
 typeof(gapminder$country)
 typeof(gapminder$gdpPercap)

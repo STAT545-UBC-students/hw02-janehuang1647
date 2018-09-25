@@ -23,7 +23,19 @@ library(tidyverse)
 Small test the data
 -------------------
 
-1.  Is it a data.frame, a matrix,a vector, a list? Answer: This is a list.
+1.  Is it a data.frame, a matrix,a vector, a list? Answer: As we called the str() function, we can clearly see that our data is a data.frame.
+
+``` r
+str(gapminder)
+```
+
+    ## Classes 'tbl_df', 'tbl' and 'data.frame':    1704 obs. of  6 variables:
+    ##  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+    ##  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+    ##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+    ##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+    ##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+    ##  $ gdpPercap: num  779 821 853 836 740 ...
 
 ``` r
 typeof(gapminder)
@@ -31,7 +43,7 @@ typeof(gapminder)
 
     ## [1] "list"
 
-1.  What is its class?
+1.  What is its class? As shown below, the class() function returned the class of the data, which are table, tibble and data frame.
 
 ``` r
 class(gapminder) ##class
@@ -39,7 +51,7 @@ class(gapminder) ##class
 
     ## [1] "tbl_df"     "tbl"        "data.frame"
 
-1.  How many varables/column?
+1.  How many variables/column? There are 6 columns when each column corresponding to one variable.
 
 ``` r
 ncol(gapminder) ## number of column
@@ -47,7 +59,7 @@ ncol(gapminder) ## number of column
 
     ## [1] 6
 
-1.  How mant rows/observation?
+1.  How mant rows/observation? There are total 1704 rows which stands for 1704 observations.
 
 ``` r
 nrow(gapminder)
@@ -75,6 +87,11 @@ ncol <- dim(gapminder)[2] ## return number of columns
 ```
 
 6.What data type is each variable?
+
+|variable| data type|
+---------------------
+
+|--------|----------| | country | integer | | gdpPercap | double | | continent | integer | | year | integr | | pop | integer | | lifeExp | double |
 
 ``` r
 typeof(gapminder$country)
