@@ -188,11 +188,11 @@ As shown from the above data, although year is ranging from 1952-2007, the most 
 
 For the variable continent, the most typical value is Africa and the continent Oceania has less entries.
 
-Explore various plot types
---------------------------
+**Explore various plot types**
+------------------------------
 
 This is the scatterplot of pop vs gdpPercap, transparentcy of 0.25 is applied to give a better view of the data.
-================================================================================================================
+----------------------------------------------------------------------------------------------------------------
 
 ``` r
 ggplot(gapminder,aes(pop,gdpPercap))+
@@ -202,7 +202,7 @@ ggplot(gapminder,aes(pop,gdpPercap))+
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 This is a histogram of pop and the bin is set to be 50.
-=======================================================
+-------------------------------------------------------
 
 ``` r
 ggplot(gapminder,aes(pop))+
@@ -219,7 +219,7 @@ ggplot(gapminder,aes(pop))+
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-12-1.png) \#This is a boxplot of lifeExp for each continent.
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-12-1.png) \#\#This is a boxplot of lifeExp for each continent.
 
 ``` r
 ## fill is used to give different continent a different color filling 
@@ -230,7 +230,7 @@ ggplot(gapminder,aes(continent,lifeExp))+
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-13-1.png)
 
 This is the violin plot of lifeExp for each continent
-=====================================================
+-----------------------------------------------------
 
 ``` r
 ggplot(gapminder,aes(continent,lifeExp))+
@@ -240,7 +240,7 @@ ggplot(gapminder,aes(continent,lifeExp))+
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-14-1.png)
 
 separate plotting of pop for each continent
-===========================================
+-------------------------------------------
 
 Since different continent has various population, the scales free\_x is used to better present the data in the graph.
 
@@ -254,8 +254,8 @@ ggplot(gapminder,aes(pop))+
 
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-15-1.png)
 
-Using filter(), select() and %&gt;%
------------------------------------
+**Using filter(), select() and %&gt;% **
+----------------------------------------
 
 filter the data to continent Americas only and the various plots are shown below: the color function is applied to the plot to indicate the different trends for various separate countries in Americas.
 
@@ -280,8 +280,8 @@ gapminder %>%
 
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
-Extra Work
-----------
+**Extra Work**
+--------------
 
 ``` r
 filter(gapminder, country == c("Rwanda", "Afghanistan"))

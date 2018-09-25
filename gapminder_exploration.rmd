@@ -85,15 +85,15 @@ As shown from the above data, although year is ranging from 1952-2007, the most 
 For the variable continent, the most typical value is Africa and the continent Oceania has less entries. 
 
 
-## Explore various plot types
+## __Explore various plot types__
 
-#This is the scatterplot of pop vs gdpPercap, transparentcy of 0.25 is applied to give a better view of the data. 
+##This is the scatterplot of pop vs gdpPercap, transparentcy of 0.25 is applied to give a better view of the data. 
 ```{r}
 ggplot(gapminder,aes(pop,gdpPercap))+
   geom_point(alpha=0.25)
 ```
 
-#This is a histogram of pop and the bin is set to be 50.
+##This is a histogram of pop and the bin is set to be 50.
 ```{r}
 ggplot(gapminder,aes(pop))+
   geom_histogram(bins=50)
@@ -105,20 +105,20 @@ ggplot(gapminder,aes(pop))+
   geom_histogram(aes(y=..density..))+
   geom_density()
 ```
-#This is a boxplot of lifeExp for each continent.
+##This is a boxplot of lifeExp for each continent.
 ```{r}
 ## fill is used to give different continent a different color filling 
 ggplot(gapminder,aes(continent,lifeExp))+
   geom_boxplot(aes(fill=continent))
 ```
 
-#This is the violin plot of lifeExp for each continent
+##This is the violin plot of lifeExp for each continent
 ```{r}
 ggplot(gapminder,aes(continent,lifeExp))+
   geom_violin(aes(fill=continent))
 ```
 
-#separate plotting of pop for each continent
+##separate plotting of pop for each continent
 Since different continent has various population, the  scales free_x is used to better present the data in the graph. 
 ```{r}
 ggplot(gapminder,aes(pop))+
@@ -128,7 +128,7 @@ ggplot(gapminder,aes(pop))+
 
 
 
-##Using filter(), select() and %>% 
+##__Using filter(), select() and %>% __
 
 filter the data to continent Americas only and the various plots are shown below:
 the color function is applied to the plot to indicate the different trends for various separate countries in Americas.
@@ -151,7 +151,7 @@ gapminder %>%
 
 ```
 
-## Extra Work
+## __Extra Work__
 ```{r}
 filter(gapminder, country == c("Rwanda", "Afghanistan"))
 ```
