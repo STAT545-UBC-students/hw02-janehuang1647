@@ -219,7 +219,10 @@ ggplot(gapminder,aes(pop))+
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-12-1.png) \#\#This is a boxplot of lifeExp for each continent.
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-12-1.png)
+
+This is a boxplot of lifeExp for each continent.
+------------------------------------------------
 
 ``` r
 ## fill is used to give different continent a different color filling 
