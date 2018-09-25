@@ -192,6 +192,7 @@ Explore various plot types
 --------------------------
 
 This is the scatterplot of pop vs gdpPercap, transparentcy of 0.25 is applied to give a better view of the data.
+================================================================================================================
 
 ``` r
 ggplot(gapminder,aes(pop,gdpPercap))+
@@ -201,13 +202,14 @@ ggplot(gapminder,aes(pop,gdpPercap))+
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 This is a histogram of pop and the bin is set to be 50.
+=======================================================
 
 ``` r
 ggplot(gapminder,aes(pop))+
   geom_histogram(bins=50)
 ```
 
-![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-11-1.png) This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-11-1.png) \#This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
 
 ``` r
 ggplot(gapminder,aes(pop))+
@@ -217,37 +219,54 @@ ggplot(gapminder,aes(pop))+
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-12-1.png) This is a boxplot of lifeExp for each continent.
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-12-1.png) \#This is a boxplot of lifeExp for each continent.
 
 ``` r
+## fill is used to give different continent a different color filling 
 ggplot(gapminder,aes(continent,lifeExp))+
-  geom_boxplot()
+  geom_boxplot(aes(fill=continent))
 ```
 
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-13-1.png)
 
 This is the violin plot of lifeExp for each continent
+=====================================================
 
 ``` r
 ggplot(gapminder,aes(continent,lifeExp))+
-  geom_violin()
+  geom_violin(aes(fill=continent))
 ```
 
 ![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-14-1.png)
 
+separate plotting of pop for each continent
+===========================================
+
+Since different continent has various population, the scales free\_x is used to better present the data in the graph.
+
+``` r
+ggplot(gapminder,aes(pop))+
+  facet_wrap(~ continent, scales="free_x")+
+  geom_histogram(aes(fill=continent))
+```
+
+    ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-15-1.png)
+
 Using filter(), select() and %&gt;%
 -----------------------------------
 
-filter the data to continent Oceania only and the various plots are shown below:
+filter the data to continent Americas only and the various plots are shown below: the color function is applied to the plot to indicate the different trends for various separate countries in Americas.
 
 ``` r
 gapminder %>% 
-  filter(continent=="Oceania") %>% 
+  filter(continent=="Americas") %>% 
   ggplot(aes(year, pop))+
- geom_point()
+ geom_point(aes(color=country))
 ```
 
-![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 select only variables lifeExp and continent and plot the boxplot and jitter plot of lifeExp for each continent.
 
@@ -255,11 +274,11 @@ select only variables lifeExp and continent and plot the boxplot and jitter plot
 gapminder %>% 
  select(lifeExp,continent) %>% 
   ggplot(aes(continent,lifeExp))+
-  geom_boxplot(alpha=0.25)+
+  geom_boxplot(alpha=0.25, aes(fill=continent))+
   geom_jitter()
 ```
 
-![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![](gapminder_exploration_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
 Extra Work
 ----------
