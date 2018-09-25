@@ -86,12 +86,7 @@ nrow <- dim(gapminder)[1] ## return number of rows
 ncol <- dim(gapminder)[2] ## return number of columns
 ```
 
-6.What data type is each variable?
-
-|variable| data type|
----------------------
-
-|--------|----------| | country | integer | | gdpPercap | double | | continent | integer | | year | integr | | pop | integer | | lifeExp | double |
+6.What data type is each variable? Here are the data type for each variable:
 
 ``` r
 typeof(gapminder$country)
@@ -135,7 +130,7 @@ Exploring individual varaibles
 Categorical variable:continent Quantitative variable:year
 
 ``` r
-summary(gapminder)
+summary(gapminder)  ## this has summarized the data of gapminder and give us a general view of the data.
 ```
 
     ##         country        continent        year         lifeExp     
@@ -196,7 +191,7 @@ For the variable continent, the most typical value is Africa and the continent O
 Explore various plot types
 --------------------------
 
-This is the scatterplot of pop vs gdpPercap
+This is the scatterplot of pop vs gdpPercap, transparentcy of 0.25 is applied to give a better view of the data.
 
 ``` r
 ggplot(gapminder,aes(pop,gdpPercap))+

@@ -52,18 +52,7 @@ ncol <- dim(gapminder)[2] ## return number of columns
 ```
 
 6.What data type is each variable?
-
-|variable| data type|
--------------------
-|--------|----------|
-|  country   |  integer  |
-|   gdpPercap  | double  |
-| continent  |  integer  |
-|  year    | integr  |
-|  pop   | integer  |
-|  lifeExp  | double  |
-
-
+Here are the data type for each variable:
 
 ```{r}
 typeof(gapminder$country)
@@ -79,7 +68,7 @@ typeof(gapminder$lifeExp)
 Categorical variable:continent
 Quantitative variable:year
 ```{r}
-summary(gapminder)
+summary(gapminder)  ## this has summarized the data of gapminder and give us a general view of the data.
 summary(gapminder$continent) ##sorting the possible continent and also the number of country each continent contains
 
 max(gapminder$year)
@@ -97,45 +86,59 @@ For the variable continent, the most typical value is Africa and the continent O
 
 
 ## Explore various plot types
-This is the scatterplot of pop vs gdpPercap 
+
+#This is the scatterplot of pop vs gdpPercap, transparentcy of 0.25 is applied to give a better view of the data. 
 ```{r}
 ggplot(gapminder,aes(pop,gdpPercap))+
   geom_point(alpha=0.25)
 ```
 
-This is a histogram of pop and the bin is set to be 50.
+#This is a histogram of pop and the bin is set to be 50.
 ```{r}
 ggplot(gapminder,aes(pop))+
   geom_histogram(bins=50)
 ```
-This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
+#This is a combination of kernel density plot and histogram of pop and the bin is set to be 50.
 
 ```{r}
 ggplot(gapminder,aes(pop))+
   geom_histogram(aes(y=..density..))+
   geom_density()
 ```
-This is a boxplot of lifeExp for each continent.
+#This is a boxplot of lifeExp for each continent.
 ```{r}
+## fill is used to give different continent a different color filling 
 ggplot(gapminder,aes(continent,lifeExp))+
-  geom_boxplot()
+  geom_boxplot(aes(fill=continent))
 ```
 
-This is the violin plot of lifeExp for each continent
+#This is the violin plot of lifeExp for each continent
 ```{r}
 ggplot(gapminder,aes(continent,lifeExp))+
-  geom_violin()
+  geom_violin(aes(fill=continent))
 ```
+
+#separate plotting of pop for each continent
+Since different continent has various population, the  scales free_x is used to better present the data in the graph. 
+```{r}
+ggplot(gapminder,aes(pop))+
+  facet_wrap(~ continent, scales="free_x")+
+  geom_histogram(aes(fill=continent))
+```
+
+
 
 ##Using filter(), select() and %>% 
 
-filter the data to continent Oceania only and the various plots are shown below:
+filter the data to continent Americas only and the various plots are shown below:
+the color function is applied to the plot to indicate the different trends for various separate countries in Americas.
 
 ```{r}
 gapminder %>% 
-  filter(continent=="Oceania") %>% 
+  filter(continent=="Americas") %>% 
   ggplot(aes(year, pop))+
- geom_point()
+ geom_point(aes(color=country))
+  
 ```
 
 select only variables lifeExp and continent and plot the boxplot and jitter plot of lifeExp for each continent.
@@ -143,7 +146,7 @@ select only variables lifeExp and continent and plot the boxplot and jitter plot
 gapminder %>% 
  select(lifeExp,continent) %>% 
   ggplot(aes(continent,lifeExp))+
-  geom_boxplot(alpha=0.25)+
+  geom_boxplot(alpha=0.25, aes(fill=continent))+
   geom_jitter()
 
 ```
