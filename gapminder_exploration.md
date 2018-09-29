@@ -43,15 +43,14 @@ typeof(gapminder)
 
     ## [1] "list"
 
-1.  What is its class? As shown below, the class() function returned the class of the data, which are table, tibble and data frame.
+2.  What is its class? As shown below, the class() function returned the class of the data, which are table, tibble and data frame.
 
 ``` r
 class(gapminder) ##class
 ```
 
     ## [1] "tbl_df"     "tbl"        "data.frame"
-
-1.  How many variables/column? There are 6 columns when each column corresponding to one variable.
+3.  How many variables/column? There are 6 columns when each column corresponding to one variable.
 
 ``` r
 ncol(gapminder) ## number of column
@@ -59,7 +58,7 @@ ncol(gapminder) ## number of column
 
     ## [1] 6
 
-1.  How mant rows/observation? There are total 1704 rows which stands for 1704 observations.
+4.  How mant rows/observation? There are total 1704 rows which stands for 1704 observations.
 
 ``` r
 nrow(gapminder)
@@ -67,7 +66,7 @@ nrow(gapminder)
 
     ## [1] 1704
 
-1.  Get these facts about extent or size in more than one way?
+5.  Get these facts about extent or size in more than one way?
 
 ``` r
 length(gapminder) ## return the length of the vectors therefore the number of column
